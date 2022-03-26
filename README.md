@@ -1,1 +1,1 @@
-# New-API-Example-
+# News-API-Example-
