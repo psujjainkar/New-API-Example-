@@ -35,7 +35,7 @@
 
        <input type="text" id="getQuery">
       <button type="button" class="btn btn-primary" id="getNews" onclick="getAllNewsData();">get News</button>
-      <div id="theDiv"></div>
+      
 
       <ul id="list1" class="list-group bg-primary">
         
@@ -61,7 +61,7 @@ const settings = {
 	"method": "GET",
 	"headers": {
 		"X-RapidAPI-Host": "free-news.p.rapidapi.com",
-		"X-RapidAPI-Key": "API_KEY"
+		"X-RapidAPI-Key": "7cf3ddde6dmsha9a32b4fb4fe9b1p1e9483jsnabe46e9b6f75"
 	}
 };
 
@@ -83,6 +83,7 @@ $.ajax(settings).done(function (response) {
               +"<h5>"+response.articles[k].title+"</h5>"
               +response.articles[k].summary 
               + response.articles[k].published_date
+              +"<p> Courtecy : "+ response.articles[k].rights+"</p>"
               
               
               
@@ -92,8 +93,7 @@ $.ajax(settings).done(function (response) {
                console.log(response.articles[k].title);
                console.log(response.articles[k].summary);
                console.log(response.articles[k].media);
-              // $('#theDiv').prepend('<img src='+response.articles[k].media+'>')
-
+             
 
 
             }
