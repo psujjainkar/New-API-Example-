@@ -35,6 +35,7 @@
 
        <input type="text" id="getQuery">
       <button type="button" class="btn btn-primary" id="getNews" onclick="getAllNewsData();">get News</button>
+      <div id="theDiv"></div>
 
       <ul id="list1" class="list-group bg-primary">
         
@@ -60,7 +61,7 @@ const settings = {
 	"method": "GET",
 	"headers": {
 		"X-RapidAPI-Host": "free-news.p.rapidapi.com",
-		"X-RapidAPI-Key": "YOUR_API_KEY"
+		"X-RapidAPI-Key": "API_KEY"
 	}
 };
 
@@ -74,11 +75,26 @@ $.ajax(settings).done(function (response) {
       console.log(response);
     
               for(var k in featureData) {
-             
-             $("#list1").append($("<li class='list-group-item'>"+"<h5>"+response.articles[k].title+"</h5>"+response.articles[k].summary + response.articles[k].published_date +"</li>"));    
+                var twitterURL=response.articles[k].twitter_account
+             $("#list1").append($(
+               
+             "<li class='list-group-item'>"+
+              '<img src='+response.articles[k].media+' style="width:100%">'
+              +"<h5>"+response.articles[k].title+"</h5>"
+              +response.articles[k].summary 
+              + response.articles[k].published_date
+              
+              
+              
+              
+              +"</li>"));    
              
                console.log(response.articles[k].title);
                console.log(response.articles[k].summary);
+               console.log(response.articles[k].media);
+              // $('#theDiv').prepend('<img src='+response.articles[k].media+'>')
+
+
 
             }
 
